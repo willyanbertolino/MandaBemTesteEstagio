@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- ###################################################################
+    
+    This is an authorial code developed by Willyan H. P. Bertolino 
+    
+    https://github.com/willyanbertolino
+  
+  ########################################################################-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      :root {
+        --scale-75: 0.75;
+        --scale-100: 1;
+        --scale-125: 1.25;
+        --color-orange: #fc4c02;
+        --color-white: #fff;
+        --color-bg: #f2f2f2;
+        --font-family: Arial, Helvetica, sans-serif;
+        --text-color-1: #231f20;
+        --text-color-2: #74787a;
+        --text-color-3: #b2b2b2;
+        --color-1: #e62259;
+        --color-2: #685ba4;
+        --color-3: #76c6cf;
+        --color-4: #665da5;
+        --color-5: #75c7ce;
+        --color-6: #39b387;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 87.5vw;
+        margin: 0 auto;
+        background: var(--color-bg);
+        font-family: var(--font-family);
+      }
+
+      img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      a {
+        color: var(--text-color-1);
+      }
+
+      .grid-center {
+        display: grid;
+        place-items: center;
+      }
+
+      .max-width-center {
+        max-width: 87.5%;
+        margin: 0 auto;
+      }
+
+      /* header */
+      .space {
+        height: 1.8vw;
+        background: var(--color-white);
+      }
+
+      .bg-gradient {
+        position: relative;
+        width: 100%;
+        height: 35vh;
+        background: linear-gradient(
+          135deg,
+          #e9492a,
+          #e9492a 40%,
+          #e72357 60%,
+          #e72357
+        );
+      }
+
+      .left-object {
+        position: absolute;
+        top: 1rem;
+        width: 27%;
+      }
+
+      .left-object-img {
+        height: 100px;
+        overflow: hidden;
+      }
+
+      .manda-trends-text {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        width: 65%;
+      }
+
+      .setas {
+        position: absolute;
+        top: 53%;
+        left: 0.5rem;
+        width: 12%;
+      }
+
+      .bolinhas {
+        position: absolute;
+        top: 42%;
+        right: 2.8rem;
+        overflow: hidden;
+        width: 9%;
+        height: 9%;
+      }
+
+      .mulher {
+        position: absolute;
+        bottom: -4.5rem;
+        left: 0.5rem;
+        width: 45%;
+        z-index: 1;
+      }
+
+      .triangulo {
+        position: absolute;
+        bottom: 6.2rem;
+        right: 1rem;
+        width: 5%;
+      }
+
+      .nrf {
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+        width: 40%;
+      }
+
+      .zigzag {
+        position: absolute;
+        bottom: 1rem;
+        right: 2rem;
+        width: 25%;
+      }
+
+      /* conteudo */
+      main {
+        background: var(--color-white);
+        position: relative;
+        padding-top: 2.1rem;
+      }
+
+      .main-img {
+        margin: 0 auto;
+        width: 88%;
+        position: relative;
+        z-index: 2;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+      }
+
+      .main-img img {
+        width: 130%;
+      }
+
+      h1 {
+        color: var(--text-color-1);
+        padding: 0.5rem 0;
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: 0.7rem;
+        padding-bottom: 0.5rem;
+      }
+
+      .text-description {
+        color: var(--text-color-2);
+      }
+
+      .src {
+        color: var(--text-color-3);
+        font-style: italic;
+      }
+
+      .main-line,
+      .basket-line,
+      .whats-line {
+        height: 3px;
+      }
+
+      .basket-line {
+        margin-bottom: 1.5rem;
+      }
+
+      .main-line {
+        width: 70%;
+        background: linear-gradient(135deg, var(--color-1), var(--color-2));
+      }
+
+      /* section */
+      .container-section {
+        padding-top: 2rem;
+        padding-bottom: 1.5rem;
+        background: var(--color-white);
+      }
+
+      .container-section-img {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      h2 {
+        color: var(--text-color-1);
+        padding: 0.9rem 0;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+
+      .basket-line {
+        width: 60%;
+        background: linear-gradient(135deg, var(--color-3), var(--color-4));
+      }
+
+      .whats-line {
+        width: 60%;
+        background: linear-gradient(135deg, var(--color-5), var(--color-6));
+      }
+
+      /* footer */
+      .footer-main-text {
+        padding: 1rem;
+        width: 100%;
+        background: var(--color-orange);
+      }
+
+      .footer-info {
+        font-family: 'Arial';
+        padding: 1rem 0;
+        font-size: 0.8rem;
+        text-align: center;
+      }
+
+      @media screen and (min-width: 440px) {
+        body {
+          width: 92vw;
+          max-width: 1100px;
+        }
+
+        /* header */
+        .space {
+          height: 1.75rem;
+        }
+
+        .bg-gradient {
+          height: 21.5vw;
+          max-height: 235px;
+        }
+
+        .left-object {
+          overflow: hidden;
+        }
+
+        .left-object-img {
+          height: 100%;
+          top: 3vw;
+          width: 17vw;
+          margin-left: -3vw;
+          max-width: 190px;
+        }
+
+        .manda-trends-text {
+          left: 7vw;
+          width: 27.5vw;
+          max-width: 300px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        .setas {
+          top: 3vw;
+          left: 51.5%;
+          transform: translateX(-50%);
+          width: 6.7vw;
+          max-width: 70px;
+        }
+
+        .bolinhas {
+          width: 5.6vw;
+          max-width: 60px;
+          top: 81.5%;
+          left: 35vw;
+          overflow: visible;
+        }
+
+        .mulher {
+          top: 8.2vw;
+          left: 43vw;
+          width: 20vw;
+          max-width: 220px;
+        }
+
+        .triangulo {
+          top: 0.7vw;
+          right: 2.3vw;
+          width: 3.5vw;
+          max-width: 38px;
+        }
+
+        .nrf {
+          top: 4.5vw;
+          right: 5.7vw;
+          width: 20vw;
+          max-width: 220px;
+        }
+
+        .zigzag {
+          position: absolute;
+          bottom: 3vw;
+          right: 5.7vw;
+          width: 12vw;
+          max-width: 135px;
+        }
+
+        /* conteudo */
+        main {
+          padding-top: 4.2vw;
+        }
+
+        .main-img {
+          padding-bottom: 1vw;
+        }
+
+        .main-img img {
+          width: 100%;
+        }
+
+        h1 {
+          padding: 1.1vw 0;
+          font-size: 3.15vw;
+        }
+
+        p {
+          font-size: 1.9vw;
+          padding-bottom: 2vw;
+        }
+
+        .src {
+          font-size: 1.7vw;
+          padding-bottom: 1vw;
+        }
+
+        .main-line,
+        .basket-line,
+        .whats-line {
+          height: 5px;
+        }
+
+        .main-line {
+          width: 46.5%;
+        }
+
+        .basket-line {
+          margin-bottom: 0;
+        }
+
+        /* section */
+        .container-section {
+          padding-top: 5.5vw;
+        }
+
+        .container-section-img {
+          width: 88%;
+          display: flex;
+          justify-content: space-between;
+        }
+
+        h2 {
+          padding: 1.6vw 0;
+          font-size: 2.6vw;
+        }
+
+        .basket-container {
+          width: 47.5%;
+        }
+
+        .whats-container {
+          width: 50%;
+        }
+
+        article img {
+          height: 29vw;
+          max-height: 20rem;
+        }
+
+        .basket-line,
+        .whats-line {
+          margin-top: 1vw;
+        }
+
+        /* footer */
+        .footer-main-text {
+          height: 12.5vw;
+          max-height: 8rem;
+        }
+
+        .footer-main-text img {
+          width: 38vw;
+          max-width: 22rem;
+        }
+
+        .footer-info {
+          padding-bottom: 6vw;
+        }
+
+        .footer-info p {
+          padding: 0;
+        }
+      }
+
+      @media screen and (min-width: 1100px) {
+        .bolinhas {
+          left: 38%;
+        }
+
+        .mulher {
+          top: 5.6rem;
+          left: 46.5%;
+        }
+
+        .triangulo {
+          top: 0.5rem;
+        }
+
+        .nrf {
+          top: 3rem;
+        }
+
+        .zigzag {
+          bottom: 2rem;
+        }
+
+        main {
+          padding-top: 3rem;
+        }
+
+        .main-img {
+          padding-bottom: 1vw;
+        }
+
+        h1 {
+          padding: 0.8rem 0;
+          font-size: 2.1rem;
+        }
+
+        p {
+          font-size: 1.3rem;
+          padding-bottom: 2vw;
+        }
+
+        .src {
+          font-size: 1.2rem;
+          padding-bottom: 1rem;
+        }
+
+        .container-section {
+          padding-top: 3.5rem;
+        }
+
+        h2 {
+          padding: 1rem 0;
+          font-size: 1.8rem;
+        }
+
+        .basket-line,
+        .whats-line {
+          margin-top: 0.7rem;
+        }
+
+        .footer-info {
+          padding-bottom: 3rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="space"></div>
+      <div class="bg-gradient">
+        <div class="left-object">
+          <div class="left-object-img">
+            <img src="./img/left-object.png" alt="listras" />
+          </div>
+        </div>
+
+        <div class="manda-trends-text">
+          <img src="./img/manda-trends-text.png" alt="manda-trends" />
+        </div>
+
+        <div class="bolinhas">
+          <img src="./img/bolinhas.png" alt="bolinhas" />
+        </div>
+
+        <div class="mulher">
+          <img src="./img/mulher.png" alt="mulher" />
+        </div>
+
+        <div class="setas">
+          <img src="./img/setas.png" alt="setas" />
+        </div>
+
+        <div class="triangulo">
+          <img src="./img/triangulo.png" alt="triangulo" />
+        </div>
+
+        <div class="nrf">
+          <img
+            src="./img/NRF2020.png"
+            alt="NRF 2020, Kobe Bryant e WhatsApp Payment"
+          />
+        </div>
+
+        <div class="zigzag">
+          <img src="./img/zigzag.png" alt="zigzag" />
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="main-img">
+        <img
+          src="./img/principal.png"
+          alt="NRF 2020 vision - Retail's big show"
+        />
+      </div>
+      <div class="max-width-center">
+        <h1>NRF 2020: conheça os top 5 assuntos do evento.</h1>
+        <p class="text-description">
+          O maior evento sobre varejo do mundo mostrando as tendências,
+          oportunidades e inovações para o setor.
+        </p>
+        <p class="src">Fonte: CMO ADOBE</p>
+        <div class="main-line"></div>
+      </div>
+    </main>
+
+    <section class="container-section">
+      <div class="container-section-img">
+        <article class="basket-container">
+          <img src="./img/basket.png" alt="#MAKEKOBETHELOGO" />
+          <h2>Petição para colocar Kobe Bryant no logo da NBA.</h2>
+          <p class="src">Fonte: Daily Mail</p>
+          <div class="basket-line"></div>
+        </article>
+
+        <article class="whats-container">
+          <img src="./img/whatsapp.png" alt="whats" />
+          <h2>WhatsApp terá função de pagamentos em 2020.</h2>
+
+          <p class="src">Fonte: Proxxima</p>
+          <div class="whats-line"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="grid-center">
+      <div class="footer-main-text grid-center">
+        <img
+          src="./img/mandarin-text-footer.png"
+          alt="Mandarin - we design for shopper"
+        />
+      </div>
+      <div class="footer-info max-width-center">
+        <p>Copyright &reg; Mandarin. Todos os direitos reservados.</p>
+        <p>
+          Caso não deseje mais receber nossos email, por favor
+          <a href="#">clique aqui</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
